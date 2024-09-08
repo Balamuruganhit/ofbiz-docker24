@@ -10,6 +10,7 @@ if [ -z "$RUNNING_OFBIZ_SERVICE_ID" ]; then
     echo "OFBiz service is not running."
     exit 0
 fi
+chmod +x ofbiz/send_ofbiz_stop_signal.sh
 
 echo "OFBiz service is running. Stopping..."
 docker compose exec ofbiz /send_ofbiz_stop_signal.sh
