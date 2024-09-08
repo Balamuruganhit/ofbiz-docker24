@@ -1,0 +1,31 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres:13
+    mem_limit: 300M
+    memswap_limit: 300M
+    cpu_shares: 200
+    restart: "no"
+    environment:
+      POSTGRES_PASSWORD: lDvEFVkVyVpHuCOK9To3
+    # ports:
+    #   - 5432:5432
+    volumes:
+      - ./dbdumps:/opt/dbdumps
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  ofbiz:
+    build: ofbiz
+    mem_limit: 1600M
+    memswap_limit: 1600M
+    cpu_shares: 200
+    depends_on:
+      - db
+    ports:
+      - 8443:8443
+      - 127.0.0.1:15005:5005
+      - 127.0.0.1:8009:8009
+    # command: ["ofbiz", "--debug-jvm"]
+    # command: ["loadAll"]
+    # command: ["/ofbiz/gradlew", "ofbiz"]

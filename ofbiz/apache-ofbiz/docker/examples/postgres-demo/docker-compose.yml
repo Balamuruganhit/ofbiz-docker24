@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: ofbiz
+      POSTGRES_PASSWORD: ofbiz
+      POSTGRES_DB: ofbiz
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ofbiz-network
+
+  ofbiz:
+    build: 
+      context: ../../..
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/ofbiz
+    networks:
+      - ofbiz-network
+    volumes:
+      - ofbiz_data:/ofbiz/runtime/data
+
+networks:
+  ofbiz-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  ofbiz_data:
