@@ -19,7 +19,7 @@ fi
 TENANT_ID="mytenant"
 TENANT_NAME="My Name"
 DOMAIN_NAME="com.example"
-DB_PLATFORM="M"  # M is typically for PostgreSQL
+DB_PLATFORM="P"  # M is typically for PostgreSQL
 DB_IP="127.0.0.1"
 DB_USER="ofbiztenant"  # Use the database user created for the tenant
 DB_PASSWORD="ofbiztenant"  # Use the password set for the tenant database user
