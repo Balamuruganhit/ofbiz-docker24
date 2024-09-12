@@ -28,7 +28,7 @@ TENANT_COMPONENT="base"
 
 # Step 1: Create the tenant
 echo "Creating tenant '$TENANT_NAME' with ID '$TENANT_ID'..."
-docker compose run --rm ofbiz  createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=127.0.0.1 -PdbUser=ofbiztenant -PdbPassword=ofbiztenant
+docker compose run --rm ofbiz  createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.19.0.2 -PdbUser=ofbiztenant -PdbPassword=ofbiztenant
 
 echo "Tenant '$TENANT_NAME' created with ID '$TENANT_ID'."
 
