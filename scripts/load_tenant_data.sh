@@ -28,13 +28,14 @@ TENANT_COMPONENT="base"
 
 # Step 1: Create the tenant
 echo "Creating tenant '$TENANT_NAME' with ID '$TENANT_ID'..."
+
 # docker compose run --rm ofbiz  createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.19.0.2 -PdbUser=ofbiztenant -PdbPassword=ofbiztenant -Dorg.gradle.jvmargs="-Xmx1024m"
-docker compose run --rm ofbiz createTenant -PtenantId=mytenant -PtenantName="My Name" -PdomainName=com.example -PtenantReaders=seed,seed-initial,ext -PdbPlatform=M -PdbIp=127.0.0.1 -PdbUser=mydbuser -PdbPassword=mydbpass
+docker compose run --rm ofbiz createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=127.0.0.1 -PdbUser=ofb_tenant001 -PdbPassword=ofbiz@tenant
 echo "Tenant '$TENANT_NAME' created with ID '$TENANT_ID'."
 
 # Step 2: Load tenant data
 echo "Loading data for tenant '$TENANT_ID'..."
-docker compose run --rm ofbiz loadTenant -PtenantId=mytenant -PtenantReaders=seed,seed-initial,demo -PtenantComponent=base
+docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,ext -PtenantComponent=base
 
 echo "Data for tenant '$TENANT_ID' loaded."
 
