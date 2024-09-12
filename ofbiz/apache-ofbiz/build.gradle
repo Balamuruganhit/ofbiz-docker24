@@ -539,7 +539,7 @@ task createTenant(group: ofbizServer, description: 'Create a new tenant in your 
          '--load-data', 'readers=tenant'])
     loadTenantOnMasterTenantDb.dependsOn(generateDatabaseTemplateFile, generateAdminUserTemplateFile)
 
-    // Load the actual tenant data
+    // Load the actual tenant datau
     createOfbizCommandTask('loadTenantData', [])
     loadTenantData.dependsOn(loadTenantOnMasterTenantDb)
 
