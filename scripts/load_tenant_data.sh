@@ -28,7 +28,7 @@ TENANT_COMPONENT="base"
 
 # Step 1: Create the tenant
 echo "Creating tenant '$TENANT_NAME' with ID '$TENANT_ID'..."
-docker compose run --rm ofbiz gradlew createTenant \
+docker compose run --rm ofbiz  createTenant \
   -PtenantId=$TENANT_ID \
   -PtenantName="$TENANT_NAME" \
   -PdomainName=$DOMAIN_NAME \
@@ -42,7 +42,7 @@ echo "Tenant '$TENANT_NAME' created with ID '$TENANT_ID'."
 
 # Step 2: Load tenant data
 echo "Loading data for tenant '$TENANT_ID'..."
-docker compose run --rm ofbiz gradlew loadTenant \
+docker compose run --rm ofbiz  loadTenant \
   -PtenantId=$TENANT_ID \
   -PtenantReaders=$TENANT_READERS \
   -PtenantComponent=$TENANT_COMPONENT
