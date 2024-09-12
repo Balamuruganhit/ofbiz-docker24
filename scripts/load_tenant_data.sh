@@ -16,29 +16,24 @@ if [ -n "$RUNNING_OFBIZ_SERVICE_ID" ]; then
 fi
 
 # Tenant parameters (you can modify these as needed)
-TENANT_ID="tenant001"
-TENANT_NAME="My Tenant 001"
-DOMAIN_NAME="tenant001.example.com"
-DB_PLATFORM="P"  # M is typically for PostgreSQL
-DB_IP="172.19.0.2"
-DB_USER="ofbiztenant"  # Use the database user created for the tenant
-DB_PASSWORD="ofbiztenant"  # Use the password set for the tenant database user
-TENANT_READERS="seed,seed-initial,ext"
-TENANT_COMPONENT="base"
+TENANT_ID="tenant1"
+TENANT_NAME="Tenant_One"
+DOMAIN_NAME="tenant1.example.com"
+DB_NAME="tenant1_db"
+DB_USER="tenant1_user"
+DB_PASSWORD="tenant1_pass"
 
 # Step 1: Create the tenant
-echo "Creating tenant '$TENANT_NAME' with ID '$TENANT_ID'..."
+# Create Tenant 1
+echo "tenant1 create start"
+./gradlew "ofbiz --service createTenant --tenantId=tenant1 --tenantName=Tenant_One --domainName=tenant1.example.com --tenantDataSourceName=tenant1-datasource"
+echo "tenant 1 created"
 
-# docker compose run --rm ofbiz  createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.19.0.2 -PdbUser=ofbiztenant -PdbPassword=ofbiztenant -Dorg.gradle.jvmargs="-Xmx1024m"
-docker compose run --rm ofbiz createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=127.0.0.1 -PdbUser=ofb_tenant001 -PdbPassword=ofbiz@tenant
-echo "Tenant '$TENANT_NAME' created with ID '$TENANT_ID'."
+echo "tenant2 create start"
+./gradlew "ofbiz --service createTenant --tenantId=tenant2 --tenantName=Tenant_Two --domainName=tenant2.example.com --tenantDataSourceName=tenant2-datasource"
 
-# Step 2: Load tenant data
-echo "Loading data for tenant '$TENANT_ID'..."
-docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,ext -PtenantComponent=base
-
-echo "Data for tenant '$TENANT_ID' loaded."
-
+echo "start ofbiz"
+./gradlew ofbiz
 # Admin credentials (can be modified if needed)
 echo "Administrative user name: localadmin"
 echo "Administrative user password: ofbiz"
