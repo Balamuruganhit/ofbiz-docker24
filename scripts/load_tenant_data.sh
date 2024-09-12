@@ -28,7 +28,7 @@ TENANT_COMPONENT="base"
 
 # Step 1: Create the tenant
 echo "Creating tenant '$TENANT_NAME' with ID '$TENANT_ID'..."
-docker compose run --rm ofbiz gradlew createTenant \
+docker compose run --rm ofbiz  createTenant \
   -PtenantId=$TENANT_ID \
   -PtenantName="$TENANT_NAME" \
   -PdomainName=$DOMAIN_NAME \
