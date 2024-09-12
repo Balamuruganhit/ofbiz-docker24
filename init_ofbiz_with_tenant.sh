@@ -19,7 +19,7 @@ echo "Starting database service"
 "$SCRIPT_DIR/scripts/start_db.sh"
 
 echo "Loading OFBiz Seed data"
-"$SCRIPT_DIR/scripts/load_tenent_data.sh"
+"$SCRIPT_DIR/scripts/load_tenant_data.sh"
 
 echo "Starting OFBiz service"
 "$SCRIPT_DIR/scripts/start_ofbiz.sh"
