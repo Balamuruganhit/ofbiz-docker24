@@ -23,16 +23,16 @@ DB_PLATFORM="M"  # M is typically for PostgreSQL
 DB_IP="127.0.0.1"
 DB_USER="ofbiztenant"  # Use the database user created for the tenant
 DB_PASSWORD="ofbiztenant"  # Use the password set for the tenant database user
-TENANT_READERS="seed,seed-initial,demo"
+TENANT_READERS="seed,seed-initial,ext"
 TENANT_COMPONENT="base"
 
 # Step 1: Create the tenant
 echo "Creating tenant '$TENANT_NAME' with ID '$TENANT_ID'..."
 docker compose run --rm ofbiz  createTenant \
   -PtenantId=$TENANT_ID \
-  -PtenantName="$TENANT_NAME" \
+  -PtenantName=$TENANT_NAME \
   -PdomainName=$DOMAIN_NAME \
-  -PtenantReaders="seed,seed-initial,ext" \
+  -PtenantReaders=$TENANT_READERS\
   -PdbPlatform=$DB_PLATFORM \
   -PdbIp=$DB_IP \
   -PdbUser=$DB_USER \
