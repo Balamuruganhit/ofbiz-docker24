@@ -14,12 +14,12 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     CREATE DATABASE ofbiztenant;
     GRANT ALL PRIVILEGES ON DATABASE ofbiztenant TO ofbiztenant;
 
-    CREATE USER ofb_tenant001 WITH PASSWORD 'ofbiz@tenant';
-    CREATE DATABASE ofbiz_tenant001;
-    CREATE DATABASE ofbizolap_tenant001;
-    CREATE USER ofbizolap_tenant001 WITH PASSWORD 'ofbiz@tenant';
-    GRANT ALL PRIVILEGES ON DATABASE ofbiz_tenant001 TO ofbizolap_tenant001;
+    CREATE USER tenant1_user WITH PASSWORD 'tenant1_pass';
+    CREATE DATABASE tenant1_db;
+    GRANT ALL PRIVILEGES ON DATABASE tenant1_db TO tenant1_user;
 
-    
-EOSQL
+    CREATE USER tenant2_user WITH PASSWORD 'tenant1_pass';
+    CREATE DATABASE tenant2_db;
+    GRANT ALL PRIVILEGES ON DATABASE tenant2_db TO tenant2_user;
+
 EOSQL
