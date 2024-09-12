@@ -32,7 +32,7 @@ docker compose run --rm ofbiz  createTenant \
   -PtenantId=$TENANT_ID \
   -PtenantName=$TENANT_NAME \
   -PdomainName=$DOMAIN_NAME \
-  -PtenantReaders=$TENANT_READERS\
+  -PtenantReaders="seed,seed-initial,ext" \
   -PdbPlatform=$DB_PLATFORM \
   -PdbIp=$DB_IP \
   -PdbUser=$DB_USER \
