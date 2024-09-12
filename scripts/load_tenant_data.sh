@@ -28,24 +28,13 @@ TENANT_COMPONENT="base"
 
 # Step 1: Create the tenant
 echo "Creating tenant '$TENANT_NAME' with ID '$TENANT_ID'..."
-docker compose run --rm ofbiz  createTenant \
-  -PtenantId=$TENANT_ID \
-  -PtenantName="$TENANT_NAME" \
-  -PdomainName=$DOMAIN_NAME \
-  -PtenantReaders="seed,seed-initial,ext" \
-  -PdbPlatform=$DB_PLATFORM \
-  -PdbIp=$DB_IP \
-  -PdbUser=$DB_USER \
-  -PdbPassword=$DB_PASSWORD
+docker compose run --rm ofbiz  createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=127.0.0.1 -PdbUser=ofbiztenant -PdbPassword=ofbiztenant
 
 echo "Tenant '$TENANT_NAME' created with ID '$TENANT_ID'."
 
 # Step 2: Load tenant data
 echo "Loading data for tenant '$TENANT_ID'..."
-docker compose run --rm ofbiz  loadTenant \
-  -PtenantId=$TENANT_ID \
-  -PtenantReaders=$TENANT_READERS \
-  -PtenantComponent=$TENANT_COMPONENT
+docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo
 
 echo "Data for tenant '$TENANT_ID' loaded."
 
