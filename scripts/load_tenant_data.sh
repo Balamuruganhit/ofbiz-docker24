@@ -16,11 +16,11 @@ if [ -n "$RUNNING_OFBIZ_SERVICE_ID" ]; then
 fi
 
 # Tenant parameters (you can modify these as needed)
-TENANT_ID="mytenant"
-TENANT_NAME="My Name"
-DOMAIN_NAME="com.example"
+TENANT_ID="tenant001"
+TENANT_NAME="My Tenant 001"
+DOMAIN_NAME="tenant001.example.com"
 DB_PLATFORM="P"  # M is typically for PostgreSQL
-DB_IP="127.0.0.1"
+DB_IP="172.19.0.2"
 DB_USER="ofbiztenant"  # Use the database user created for the tenant
 DB_PASSWORD="ofbiztenant"  # Use the password set for the tenant database user
 TENANT_READERS="seed,seed-initial,ext"
