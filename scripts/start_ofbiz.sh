@@ -16,7 +16,7 @@ echo "OFBiz service is NOT running. Starting..."
 # Get the length of any existing logs for the ofbiz service so we can skip over them when waiting for ofbiz to start.
 PREV_LOG_LENGTH_LINES=$(docker compose logs ofbiz | wc -l)
 
-docker compose up  ofbiz
+docker compose up -d ofbiz
 echo "OFBiz startup in progress..."
 
 # Log string to match on.
