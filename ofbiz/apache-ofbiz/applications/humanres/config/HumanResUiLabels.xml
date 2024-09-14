@@ -1314,7 +1314,7 @@
     </property>
     <property key="HumanResCompanyName">
         <value xml:lang="de">OFBiz: Einstellungen Personalabteilung</value>
-        <value xml:lang="en">Pangun Tech: Human Resources Manager</value>
+        <value xml:lang="en">OFBiz: Human Resources Manager</value>
         <value xml:lang="es">OFBiz: Gestion de Recursos Humanos</value>
         <value xml:lang="fr">OFBiz: gestion de ressources humaines</value>
         <value xml:lang="it">OFBiz: Gestione Risorse Umane</value>

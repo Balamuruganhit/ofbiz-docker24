@@ -50,7 +50,7 @@
         <value xml:lang="zh-TW">設置應用程式</value>
     </property>
     <property key="SetupCompanyName">
-        <value xml:lang="en">Pangun Tech: Setup Application </value>
+        <value xml:lang="en">OFBiz: Setup Application </value>
         <value xml:lang="fr">Nom de l'organisation</value>
         <value xml:lang="it">OFBiz: componente di configurazione</value>
         <value xml:lang="ja">OFBiz: 設定アプリケーション</value>

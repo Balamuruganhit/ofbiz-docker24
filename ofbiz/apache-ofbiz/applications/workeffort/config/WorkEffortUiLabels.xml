@@ -2295,7 +2295,7 @@
     </property>
     <property key="WorkEffortCompanyName">
         <value xml:lang="de">OFBiz: Arbeitseinsatz Manager</value>
-        <value xml:lang="en">Pangun Tech: WorkEffort Manager</value>
+        <value xml:lang="en">OFBiz: WorkEffort Manager</value>
         <value xml:lang="es">OFBiz: Administración de tareas</value>
         <value xml:lang="fr">OFBiz: Gestion de tâches</value>
         <value xml:lang="it">OFBiz: Gestione impegni di lavoro</value>

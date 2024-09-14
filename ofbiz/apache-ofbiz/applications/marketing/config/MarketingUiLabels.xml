@@ -419,7 +419,7 @@
         <value xml:lang="fr">OFBiz: Gestion du Marketing</value>
         <value xml:lang="it">OFBiz: Gestione vendite</value>
         <value xml:lang="ja">OFBiz: マーケティング管理</value>
-        <value xml:lang="nl">Pangun Tech: Marketing Manager</value>
+        <value xml:lang="nl">OFBiz: Marketing Manager</value>
         <value xml:lang="pt-BR">OFBiz: Gerente de Marketing</value>
         <value xml:lang="ro">OFBiz: Gestione Vendite</value>
         <value xml:lang="th">OFBiz: การจัดการทางการตลาด</value>
@@ -3106,7 +3106,7 @@
     </property>
     <property key="SfaCompanyName">
         <value xml:lang="de">OFBiz: Vertriebsmanager</value>
-        <value xml:lang="en">Pangun Tech: SFA Manager</value>
+        <value xml:lang="en">OFBiz: SFA Manager</value>
         <value xml:lang="es">Gestor de fuerzas de ventas</value>
         <value xml:lang="es-CL">OFBiz: Gestión de Fuerzas de Ventas</value>
         <value xml:lang="fr">OFBiz: gestion des ventes</value>
