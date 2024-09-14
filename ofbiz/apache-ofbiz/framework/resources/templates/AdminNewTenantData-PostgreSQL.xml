@@ -22,7 +22,11 @@ under the License.
     <Tenant tenantId="@tenantId@" tenantName="@tenantName@"/>
     <TenantDomainName tenantId="@tenantId@" domainName="@domainName@" />
     <TenantDataSource tenantId="@tenantId@" entityGroupName="org.apache.ofbiz"
-        jdbcUri="jdbc:postgresql://@db-IP@/ofbiz_@tenantId@" jdbcUsername="@db-User@" jdbcPassword="@db-Password@"/>
+        jdbcUri="jdbc:postgresql://@db-IP@/ofbiz_@tenantId@" jdbcUsername="@db-User@" jdbcPassword="@db-Password@" pool-minsize="2"
+                pool-maxsize="250"
+                time-between-eviction-runs-millis="600000"/>
     <TenantDataSource tenantId="@tenantId@" entityGroupName="org.apache.ofbiz.olap"
-        jdbcUri="jdbc:postgresql://@db-IP@/ofbizolap_@tenantId@" jdbcUsername="@db-User@" jdbcPassword="@db-Password@"/>
+        jdbcUri="jdbc:postgresql://@db-IP@/ofbizolap_@tenantId@" jdbcUsername="@db-User@" jdbcPassword="@db-Password@" pool-minsize="2"
+                pool-maxsize="250"
+                time-between-eviction-runs-millis="600000"/>
 </entity-engine-xml>
