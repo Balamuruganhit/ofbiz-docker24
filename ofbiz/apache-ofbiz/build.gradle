@@ -485,7 +485,7 @@ task loadTenant(group: ofbizServer, description: 'Load data using tenantId') {
 
 task createTenant(group: ofbizServer, description: 'Create a new tenant in your environment') {
 
-    def databaseTemplateFile = "${rootDir}/framework/resources/templates/AdminNewTenantData-Derby.xml"
+    def databaseTemplateFile = "${rootDir}/framework/resources/templates/AdminNewTenantData-PostgreSQL.xml"
 
     task prepareAndValidateTenantArguments {
         doLast {
