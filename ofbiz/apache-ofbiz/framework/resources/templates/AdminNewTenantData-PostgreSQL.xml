@@ -25,4 +25,4 @@ under the License.
         jdbcUri="jdbc:postgresql://@db-IP@/ofbiz_@tenantId@" jdbcUsername="@db-User@" jdbcPassword="@db-Password@"/>
     <TenantDataSource tenantId="@tenantId@" entityGroupName="org.apache.ofbiz.olap"
         jdbcUri="jdbc:postgresql://@db-IP@/ofbizolap_@tenantId@" jdbcUsername="@db-User@" jdbcPassword="@db-Password@"/>
-</entity-engine-xml>
+</entity-engine-xml> 
