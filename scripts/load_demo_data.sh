@@ -16,7 +16,7 @@ if [ -n "$RUNNING_OFBIZ_SERVICE_ID" ]; then
 fi
 
 echo Loading demo data...
-docker compose run --rm ofbiz loadDefault
+docker compose run --rm ofbiz loadAll
 echo Demo data loaded.
 
 echo Administrative user name: localadmin
