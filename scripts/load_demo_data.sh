@@ -16,7 +16,7 @@ if [ -n "$RUNNING_OFBIZ_SERVICE_ID" ]; then
 fi
 
 echo Loading demo data...
-docker compose run --rm ofbiz loadAll
+docker compose run --rm ofbiz createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=127.0.0.1 -PdbUser=ofb_tenant001 -PdbPassword=ofbiz@tenant
 echo Demo data loaded.
 
 echo Administrative user name: localadmin
