@@ -16,6 +16,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
 
     CREATE USER tenant1_user WITH PASSWORD 'tenant1_pass';
     CREATE DATABASE tenant1_db;
+    
     GRANT ALL PRIVILEGES ON DATABASE tenant1_db TO tenant1_user;
 
     CREATE USER tenant2_user WITH PASSWORD 'tenant1_pass';
