@@ -15,12 +15,15 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     GRANT ALL PRIVILEGES ON DATABASE ofbiztenant TO ofbiztenant;
 
     CREATE USER tenant1_user WITH PASSWORD 'tenant1_pass';
-    CREATE DATABASE tenant1_db;
-    
-    GRANT ALL PRIVILEGES ON DATABASE tenant1_db TO tenant1_user;
+    CREATE DATABASE ofbiz_tenant001;
+    CREATE DATABASE ofbizolap_tenant001;
+    GRANT ALL PRIVILEGES ON DATABASE ofbiz_tenant001 TO tenant1_user;
+    GRANT ALL PRIVILEGES ON DATABASE ofbizolap_tenant001 TO tenant1_user;
 
-    CREATE USER tenant2_user WITH PASSWORD 'tenant1_pass';
-    CREATE DATABASE tenant2_db;
-    GRANT ALL PRIVILEGES ON DATABASE tenant2_db TO tenant2_user;
+    CREATE USER tenant1_user WITH PASSWORD 'tenant1_pass';
+    CREATE DATABASE ofbiz_tenant002;
+    CREATE DATABASE ofbizolap_tenant002;
+    GRANT ALL PRIVILEGES ON DATABASE ofbiz_tenant002 TO tenant1_user;
+    GRANT ALL PRIVILEGES ON DATABASE ofbizolap_tenant002 TO tenant1_user;
 
 EOSQL
