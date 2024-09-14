@@ -22,7 +22,7 @@ under the License.
     <Tenant tenantId="@tenantId@" tenantName="@tenantName@" />
     <TenantDomainName tenantId="@tenantId@" domainName="@domainName@" />
     <TenantDataSource tenantId="@tenantId@" entityGroupName="org.apache.ofbiz" 
-        jdbcUri="jdbc:postgresql://localhost:5432/ofbiz_@tenantId@" jdbcUsername="ofbiz" jdbcPassword="ofbiz_password"/>
+        jdbcUri="jdbc:postgresql://172.18.0.2:5432/ofbiz_@tenantId@" jdbcUsername="ofbiz" jdbcPassword="ofbiz_password"/>
     <TenantDataSource tenantId="@tenantId@" entityGroupName="org.apache.ofbiz.olap" 
-        jdbcUri="jdbc:postgresql://localhost:5432/ofbizolap_@tenantId@" jdbcUsername="ofbiz" jdbcPassword="ofbiz_password"/>
+        jdbcUri="jdbc:postgresql://172.18.0.2:5432/ofbizolap_@tenantId@" jdbcUsername="ofbiz" jdbcPassword="ofbiz_password"/>
 </entity-engine-xml>
