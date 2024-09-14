@@ -18,7 +18,7 @@ fi
 echo Loading demo data...
 docker compose run --rm ofbiz createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=127.0.0.1 -PdbUser=ofb_tenant001 -PdbPassword=ofbiz@tenant
 echo Demo data loaded.
- docker compose run --rm ofbiz loadTenantData -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo --stacktrace --info
+ 
 
 echo Administrative user name: localadmin
 echo Administrative user password: ofbiz
