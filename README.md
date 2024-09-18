@@ -23,16 +23,16 @@
 
 ## Run the Gradlew setup for create multiple tenant\
 
-create tenant 1
-1.create a tenant using below command
-docker compose run --rm ofbiz createTenant -PtenantId=tenant001 -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.18.0.2 -PdbUser=tenant1_user -PdbPassword=tenant1_pass
-2.load the data into tenant db
-docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo
-Create tenant 2
-1.create a tenant using below command
-docker compose run --rm ofbiz createTenant -PtenantId=tenant002 -PtenantName="My Tenant 002" -PdomainName=tenant002.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.18.0.2 -PdbUser=tenant2_user -PdbPassword=tenant1_pass
-2.load the data into tenant db
-docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo
+		create tenant 1
+		1.create a tenant using below command
+			docker compose run --rm ofbiz createTenant -PtenantId=tenant001 -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.18.0.2 -PdbUser=tenant1_user -PdbPassword=tenant1_pass
+		2.load the data into tenant db
+			docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo
+		Create tenant 2
+		1.create a tenant using below command
+			docker compose run --rm ofbiz createTenant -PtenantId=tenant002 -PtenantName="My Tenant 002" -PdomainName=tenant002.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.18.0.2 -PdbUser=tenant2_user -PdbPassword=tenant1_pass
+		2.load the data into tenant db
+			docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo
 
 ## Config the general.properties
 
