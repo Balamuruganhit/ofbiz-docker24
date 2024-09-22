@@ -16,10 +16,7 @@ if [ -n "$RUNNING_OFBIZ_SERVICE_ID" ]; then
 fi
 
 echo Loading demo data...
-docker compose run --rm ofbiz createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.18.0.2 -PdbUser=tenant1_user -PdbPassword=tenant1_pass
-docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo
-docker compose run --rm ofbiz createTenant -PtenantId=tenant002   -PtenantName="My Tenant 002" -PdomainName=tenant002.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.18.0.2 -PdbUser=tenant2_user -PdbPassword=tenant1_pass
-docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo
+docker compose run --rm ofbiz loadAll
 echo Demo data loaded.
  
 

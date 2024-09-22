@@ -25,15 +25,10 @@ DB_PASSWORD="tenant1_pass"
 
 # Step 1: Create the tenant
 # Create Tenant 1
-echo "tenant1 create start"
-./gradlew "ofbiz --service createTenant --tenantId=tenant1 --tenantName=Tenant_One --domainName=tenant1.example.com --tenantDataSourceName=tenant1-datasource"
-echo "tenant 1 created"
-
-echo "tenant2 create start"
-./gradlew "ofbiz --service createTenant --tenantId=tenant2 --tenantName=Tenant_Two --domainName=tenant2.example.com --tenantDataSourceName=tenant2-datasource"
-
-echo "start ofbiz"
-./gradlew ofbiz
+docker compose run --rm ofbiz createTenant -PtenantId=tenant001   -PtenantName="My Tenant 001" -PdomainName=tenant001.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.18.0.2 -PdbUser=tenant1_user -PdbPassword=tenant1_pass
+docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo
+docker compose run --rm ofbiz createTenant -PtenantId=tenant002   -PtenantName="My Tenant 002" -PdomainName=tenant002.example.com -PtenantReaders=seed,seed-initial,ext -PdbPlatform=P -PdbIp=172.18.0.2 -PdbUser=tenant2_user -PdbPassword=tenant1_pass
+docker compose run --rm ofbiz loadTenant -PtenantId=tenant001 -PtenantReaders=seed,seed-initial,demo
 # Admin credentials (can be modified if needed)
 echo "Administrative user name: localadmin"
 echo "Administrative user password: ofbiz"
