@@ -1088,7 +1088,7 @@
     <property key="AccountingApCompanyName">
         <value xml:lang="ar">أوفبيز: مدير ذمم دائنة</value>
         <value xml:lang="de">OFBiz: Kreditorenbuchhaltung</value>
-        <value xml:lang="en">OFBiz: AP Manager</value>
+        <value xml:lang="en">Pangun Tech: AP Manager</value>
         <value xml:lang="es">OFBiz: Gestión de Cuentas por Pagar</value>
         <value xml:lang="fr">OFBiz: gestion des comptes fourn.</value>
         <value xml:lang="hi-IN">OFBiz: खाता देय प्रबंधक</value>
@@ -1356,7 +1356,7 @@
     <property key="AccountingArCompanyName">
         <value xml:lang="ar">أوفبيز: مدير الذمم المدينة</value>
         <value xml:lang="de">OFBiz: Debitorenbuchhaltung</value>
-        <value xml:lang="en">OFBiz: AR Manager</value>
+        <value xml:lang="en">Pangun Tech: AR Manager</value>
         <value xml:lang="es">OFBiz: Gestión de Cuentas por Cobrar</value>
         <value xml:lang="fr">OFBiz: gestion des comptes clients</value>
         <value xml:lang="hi-IN">OFBiz: खाता प्राप्य प्रबंधक</value>
@@ -2833,7 +2833,7 @@
     <property key="AccountingCompanyName">
         <value xml:lang="ar">أوفبيز: مسير المحاسبة</value>
         <value xml:lang="de">OFBiz: Buchhaltung</value>
-        <value xml:lang="en">OFBiz: Accounting Manager</value>
+        <value xml:lang="en">Pangun Tech: Accounting Manager</value>
         <value xml:lang="es">OFBiz: Administrador de cuentas</value>
         <value xml:lang="es-CL">OFBiz: Administrador de Cuentas</value>
         <value xml:lang="fr">OFBiz: Gestion comptable</value>

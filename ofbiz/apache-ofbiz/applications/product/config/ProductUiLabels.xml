@@ -86,7 +86,7 @@
     </property>
     <property key="FacilityCompanyName">
         <value xml:lang="de">OFBiz: Anlagen Verwaltung</value>
-        <value xml:lang="en">OFBiz: Facility Manager</value>
+        <value xml:lang="en">Pangun Tech: Facility Manager</value>
         <value xml:lang="es">OFBiz: Administrador de Almacén</value>
         <value xml:lang="es-CL">OFBiz: Administrador de Bodegas</value>
         <value xml:lang="fr">OFBiz: Gestion de stock</value>
@@ -14658,7 +14658,7 @@
     </property>
     <property key="ProductCatalogCompanyName">
         <value xml:lang="de">OFBiz: Katalogverwaltung</value>
-        <value xml:lang="en">OFBiz: Catalog Manager</value>
+        <value xml:lang="en">Pangun Tech: Catalog Manager</value>
         <value xml:lang="es">OFBiz: Administrador del Catálogo</value>
         <value xml:lang="fr">OFBiz: Gestion des articles</value>
         <value xml:lang="it">OFBiz: Gestione cataloghi</value>

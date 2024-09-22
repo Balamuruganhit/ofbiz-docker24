@@ -3134,7 +3134,7 @@
     </property>
     <property key="OrderCompanyName">
         <value xml:lang="de">OFBiz: Auftragsverwaltung</value>
-        <value xml:lang="en">OFBiz: Order Manager</value>
+        <value xml:lang="en">Pangun Tech: Order Manager</value>
         <value xml:lang="es">OFBiz: Gestión de pedidos</value>
         <value xml:lang="fr">OFBiz : Gestion commerciale</value>
         <value xml:lang="it">OFBiz: Gestione ordini</value>
