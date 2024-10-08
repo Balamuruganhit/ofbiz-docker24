@@ -22,9 +22,9 @@ under the License.
 
 <#assign username = requestParameters.USERNAME?default((sessionAttributes.autoUserLogin.userLoginId)?default(""))>
 <#if username != "">
-  <#assign focusName = false>
+<#assign focusName = false>
 <#else>
-  <#assign focusName = true>
+<#assign focusName = true>
 </#if>
 <div id="loginBar"><div id="company-logo-login"></div></div>
 <center>
@@ -63,7 +63,6 @@ under the License.
         <br />
         <a href="<@ofbizUrl>forgotPassword</@ofbizUrl>">${uiLabelMap.CommonForgotYourPassword}?</a>
       </form>
-      
     </div>
   </div>
 </center>

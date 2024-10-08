@@ -47,7 +47,7 @@ plugins {
  * Syntax: gradlew -PenableOwasp dependencyCheckAnalyze
  */
 if (project.hasProperty('enableOwasp')) {
-     apply plugin: 'org.owasp.dependencycheck'
+    apply plugin: 'org.owasp.dependencycheck'
 }
 
 /* DependencyUpdates plugin
@@ -66,8 +66,8 @@ if (project.hasProperty('enableOwasp')) {
  *  If you use it without check you will need to check things by yourself (can be as tedious as not using this plugin)
  */
 if (project.hasProperty('enableDependencyUpdates')) {
-     apply plugin: 'com.github.ben-manes.versions'
-     apply plugin: 'se.patrikerdes.use-latest-versions'
+    apply plugin: 'com.github.ben-manes.versions'
+    apply plugin: 'se.patrikerdes.use-latest-versions'
 }
 
 apply from: 'common.gradle'
@@ -82,10 +82,10 @@ application {
     applicationDefaultJvmArgs = project.hasProperty('jvmArgs')
             ? jvmArgs.tokenize()
             : ['-Xms128M','-Xmx1024M',
-            '-Djdk.serialFilter=maxarray=100000;maxdepth=20;maxrefs=1000;maxbytes=500000', // OFBIZ-12592 and OFBIZ-12716
+               '-Djdk.serialFilter=maxarray=100000;maxdepth=20;maxrefs=1000;maxbytes=500000', // OFBIZ-12592 and OFBIZ-12716
 //            '--add-exports=java.base/sun.util.calendar=ALL-UNNAMED', // OFBIZ-12721
-            '--add-opens=java.base/java.util=ALL-UNNAMED' // OFBIZ-12726
-            ]
+               '--add-opens=java.base/java.util=ALL-UNNAMED' // OFBIZ-12726
+    ]
 }
 
 distributions.main.contents.from(rootDir) {
@@ -102,10 +102,10 @@ javadoc {
         // Those external Javadoc links should correspond to the actual
         // versions declared in the 'dependencies' block.
         links(
-            'https://docs.oracle.com/javase/17/docs/api',
-            'https://tomcat.apache.org/tomcat-9.0-doc/servletapi/',
-            'http://docs.groovy-lang.org/docs/groovy-2.5.18/html/api',
-            'https://commons.apache.org/proper/commons-cli/apidocs'
+                'https://docs.oracle.com/javase/17/docs/api',
+                'https://tomcat.apache.org/tomcat-9.0-doc/servletapi/',
+                'http://docs.groovy-lang.org/docs/groovy-2.5.18/html/api',
+                'https://commons.apache.org/proper/commons-cli/apidocs'
         )
     }
 }
@@ -119,8 +119,8 @@ java {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
     if (!project.hasProperty('Xlint:none')) {
-    options.compilerArgs << "-Xlint:all"
-    // Exclude varargs warnings which are not silenced by @SafeVarargs.
+        options.compilerArgs << "-Xlint:all"
+        // Exclude varargs warnings which are not silenced by @SafeVarargs.
         options.compilerArgs << "-Xlint:-varargs"
     }
 }
@@ -294,15 +294,15 @@ dependencies {
 }
 
 def excludedJavaSources = [
-    'org/apache/ofbiz/accounting/thirdparty/cybersource/IcsPaymentServices.java',
-    'org/apache/ofbiz/accounting/thirdparty/orbital/OrbitalPaymentServices.java',
-    'org/apache/ofbiz/accounting/thirdparty/paypal/PayPalServices.java',
-    'org/apache/ofbiz/accounting/thirdparty/securepay/SecurePayPaymentServices.java',
-    'org/apache/ofbiz/accounting/thirdparty/securepay/SecurePayServiceTest.java',
-    'org/apache/ofbiz/accounting/thirdparty/verisign/PayflowPro.java',
-    'org/apache/ofbiz/order/thirdparty/taxware/TaxwareException.java',
-    'org/apache/ofbiz/order/thirdparty/taxware/TaxwareServices.java',
-    'org/apache/ofbiz/order/thirdparty/taxware/TaxwareUTL.java'
+        'org/apache/ofbiz/accounting/thirdparty/cybersource/IcsPaymentServices.java',
+        'org/apache/ofbiz/accounting/thirdparty/orbital/OrbitalPaymentServices.java',
+        'org/apache/ofbiz/accounting/thirdparty/paypal/PayPalServices.java',
+        'org/apache/ofbiz/accounting/thirdparty/securepay/SecurePayPaymentServices.java',
+        'org/apache/ofbiz/accounting/thirdparty/securepay/SecurePayServiceTest.java',
+        'org/apache/ofbiz/accounting/thirdparty/verisign/PayflowPro.java',
+        'org/apache/ofbiz/order/thirdparty/taxware/TaxwareException.java',
+        'org/apache/ofbiz/order/thirdparty/taxware/TaxwareServices.java',
+        'org/apache/ofbiz/order/thirdparty/taxware/TaxwareUTL.java'
 ]
 
 sourceSets {
@@ -349,9 +349,9 @@ tasks.named('compileGroovyScriptsGroovy') {
 }
 
 jar.manifest.attributes(
-    'Implementation-Title': project.name,
-    'Main-Class': application.mainClassName,
-    'Class-Path': getJarClasspath()
+        'Implementation-Title': project.name,
+        'Main-Class': application.mainClassName,
+        'Class-Path': getJarClasspath()
 )
 
 // Checks OFBiz Java coding conventions.
@@ -384,13 +384,13 @@ eclipse.classpath.file.whenMerged { classpath ->
         classpath.entries.removeAll { entry ->
             // remove any "src" entries in .classpath of the form /componentName
             entry.kind == 'src' && !(entry.path ==~ 'framework/base/config' || entry.path ==~ 'framework/base/dtd') && (
-            entry.path ==~ '.*/+(' + componentName.tokenize(fileSep).last() + ')$' ||
-            entry.path ==~ /(\/+framework)$/ ||
-            entry.path ==~ /(\/+applications)$/ ||
-            entry.path ==~ /(\/+plugins)$/ ||
-            entry.path ==~ /(\/+themes)$/ ||
-            entry.path ==~ eclipseEntry + '/config' ||
-            entry.path ==~ eclipseEntry + '/dtd')
+                    entry.path ==~ '.*/+(' + componentName.tokenize(fileSep).last() + ')$' ||
+                            entry.path ==~ /(\/+framework)$/ ||
+                            entry.path ==~ /(\/+applications)$/ ||
+                            entry.path ==~ /(\/+plugins)$/ ||
+                            entry.path ==~ /(\/+themes)$/ ||
+                            entry.path ==~ eclipseEntry + '/config' ||
+                            entry.path ==~ eclipseEntry + '/dtd')
         }
     }
 }
@@ -424,7 +424,7 @@ task testIntegration(group: ofbizServer) {
 }
 
 task terminateOfbiz(group: ofbizServer,
-    description: 'Force termination of any running OFBiz servers, only use if \"--shutdown\" command fails') {
+        description: 'Force termination of any running OFBiz servers, only use if \"--shutdown\" command fails') {
     doLast {
         if (os.contains('windows')) {
             Runtime.getRuntime().exec("wmic process where \"CommandLine Like \'%org.apache.ofbiz.base.start.Start%\'\" Call Terminate")
@@ -446,7 +446,7 @@ task terminateOfbiz(group: ofbizServer,
 task loadAdminUserLogin(group: ofbizServer) {
     description 'Create admin user with temporary password equal to ofbiz. You must provide userLoginId'
     createOfbizCommandTask('executeLoadAdminUser',
-        ['--load-data', 'file=/runtime/tmp/AdminUserLoginData.xml'])
+            ['--load-data', 'file=/runtime/tmp/AdminUserLoginData.xml'])
     executeLoadAdminUser.doFirst {
         copy {
             from ("${rootDir}/framework/resources/templates/AdminUserLoginData.xml") {
@@ -485,7 +485,7 @@ task loadTenant(group: ofbizServer, description: 'Load data using tenantId') {
 
 task createTenant(group: ofbizServer, description: 'Create a new tenant in your environment') {
 
-    def databaseTemplateFile = "${rootDir}/framework/resources/templates/AdminNewTenantData-PostgreSQL.xml"
+    def databaseTemplateFile = "${rootDir}/framework/resources/templates/AdminNewTenantData-Derby.xml"
 
     task prepareAndValidateTenantArguments {
         doLast {
@@ -512,31 +512,31 @@ task createTenant(group: ofbizServer, description: 'Create a new tenant in your 
     task generateDatabaseTemplateFile(dependsOn: prepareAndValidateTenantArguments) {
         doLast {
             def filterTokens = ['tenantId': tenantId,
-                'tenantName': project.hasProperty('tenantName')? tenantName : tenantId,
-                'domainName': project.hasProperty('domainName')? domainName : 'org.apache.ofbiz',
-                'db-IP': project.hasProperty('dbIp')? dbIp : '',
-                'db-User': project.hasProperty('dbUser')? dbUser : '',
-                'db-Password': project.hasProperty('dbPassword')? dbPassword : '']
+                                'tenantName': project.hasProperty('tenantName')? tenantName : tenantId,
+                                'domainName': project.hasProperty('domainName')? domainName : 'org.apache.ofbiz',
+                                'db-IP': project.hasProperty('dbIp')? dbIp : '',
+                                'db-User': project.hasProperty('dbUser')? dbUser : '',
+                                'db-Password': project.hasProperty('dbPassword')? dbPassword : '']
 
             generateFileFromTemplate(databaseTemplateFile, 'runtime/tmp',
-                filterTokens, 'tmpFilteredTenantData.xml')
+                    filterTokens, 'tmpFilteredTenantData.xml')
         }
     }
 
     task generateAdminUserTemplateFile(dependsOn: prepareAndValidateTenantArguments) {
         doLast {
             generateFileFromTemplate(
-                "${rootDir}/framework/resources/templates/AdminUserLoginData.xml",
-                'runtime/tmp',
-                ['userLoginId': "${tenantId}-admin".toString()],
-                'tmpFilteredUserLogin.xml')
+                    "${rootDir}/framework/resources/templates/AdminUserLoginData.xml",
+                    'runtime/tmp',
+                    ['userLoginId': "${tenantId}-admin".toString()],
+                    'tmpFilteredUserLogin.xml')
         }
     }
 
     // Load the tenants master database
     createOfbizCommandTask('loadTenantOnMasterTenantDb',
-        ['--load-data', 'file=/runtime/tmp/tmpFilteredTenantData.xml',
-         '--load-data', 'readers=tenant'])
+            ['--load-data', 'file=/runtime/tmp/tmpFilteredTenantData.xml',
+             '--load-data', 'readers=tenant'])
     loadTenantOnMasterTenantDb.dependsOn(generateDatabaseTemplateFile, generateAdminUserTemplateFile)
 
     // Load the actual tenant data
@@ -553,8 +553,8 @@ task createTenant(group: ofbizServer, description: 'Create a new tenant in your 
     if (project.hasProperty('tenantId')) {
         loadTenantData.args '--load-data', "delegator=default#${tenantId}"
         loadTenantAdminUserLogin.args(
-            '--load-data', "delegator=default#${tenantId}",
-            '--load-data', "file=${rootDir}/runtime/tmp/tmpFilteredUserLogin.xml"
+                '--load-data', "delegator=default#${tenantId}",
+                '--load-data', "file=${rootDir}/runtime/tmp/tmpFilteredUserLogin.xml"
         )
     }
     if (project.hasProperty('tenantReaders')) {
@@ -582,14 +582,14 @@ tasks.withType(AsciidoctorTask) { task ->
     }
     attributes \
         'doctype': 'book',
-        'revnumber': getCurrentGitBranch(),
-        'experimental': '',
-        'allow-uri-read': true,
-        'icons': 'font',
-        'sectnums': '',
-        'chapter-label': '',
-        'toc': 'left@',
-        'toclevels': '3'
+            'revnumber': getCurrentGitBranch(),
+            'experimental': '',
+            'allow-uri-read': true,
+            'icons': 'font',
+            'sectnums': '',
+            'chapter-label': '',
+            'toc': 'left@',
+            'toclevels': '3'
 }
 
 task deleteOfbizDocumentation {
@@ -619,26 +619,26 @@ task generateReadmeFiles(group: docsGroup, type: AsciidoctorTask) {
     sourceDir "${rootDir}"
     sources {
         include 'README.adoc', 'CHANGELOG.adoc', 'CONTRIBUTING.adoc'
-      }
+    }
     outputDir file("${buildDir}/asciidoc/readme/")
 }
 
 task generateOfbizDocumentation(group: docsGroup, type: AsciidoctorTask) {
     dependsOn deleteOfbizDocumentation
     description 'Generate OFBiz documentation manuals'
-        activeComponents().each { component ->
-            copy {
-                from "${component}/src/docs/asciidoc/images/${component.name}"
-                include '**/*.*'
-                into "${rootDir}/docs/asciidoc/images/${component.name}"
-            }
+    activeComponents().each { component ->
+        copy {
+            from "${component}/src/docs/asciidoc/images/${component.name}"
+            include '**/*.*'
+            into "${rootDir}/docs/asciidoc/images/${component.name}"
         }
+    }
     sourceDir "${rootDir}/docs/asciidoc"
     outputDir file("${buildDir}/asciidoc/ofbiz")
     doLast {
-      activeComponents().each { component ->
-          delete "${rootDir}/docs/asciidoc/images/${component.name}"
-      }
+        activeComponents().each { component ->
+            delete "${rootDir}/docs/asciidoc/images/${component.name}"
+        }
     }
 }
 
@@ -646,27 +646,27 @@ task generatePluginDocumentation(group: docsGroup) {
     dependsOn deletePluginDocumentation
     description 'Generate plugin documentation. Expects pluginId flag'
     activeComponents()
-        .findAll { project.hasProperty('pluginId') && it.name == pluginId }
-        .each { component ->
-            def pluginAsciidoc = task "${component.name}Documentation" (type: AsciidoctorTask) {
-                def asciidocFolder = new File("${component}/src/docs/asciidoc")
-                if (asciidocFolder.exists()) {
-                    copy {
-                        from "${rootDir}/docs/asciidoc/images/OFBiz-Logo.svg"
-                        into "${component}/src/docs/asciidoc/images"
+            .findAll { project.hasProperty('pluginId') && it.name == pluginId }
+            .each { component ->
+                def pluginAsciidoc = task "${component.name}Documentation" (type: AsciidoctorTask) {
+                    def asciidocFolder = new File("${component}/src/docs/asciidoc")
+                    if (asciidocFolder.exists()) {
+                        copy {
+                            from "${rootDir}/docs/asciidoc/images/OFBiz-Logo.svg"
+                            into "${component}/src/docs/asciidoc/images"
+                        }
+                        sourceDir file("${component}/src/docs/asciidoc")
+                        outputDir file("${buildDir}/asciidoc/plugins/${component.name}")
+                        doLast { println "Documentation generated for plugin ${component.name}" }
+                    } else {
+                        println "No documentation found for plugin ${component.name}"
                     }
-                    sourceDir file("${component}/src/docs/asciidoc")
-                    outputDir file("${buildDir}/asciidoc/plugins/${component.name}")
-                    doLast { println "Documentation generated for plugin ${component.name}" }
-                } else {
-                      println "No documentation found for plugin ${component.name}"
-                  }
-            doLast { delete "${component}/src/docs/asciidoc/images/OFBiz-Logo.svg" }
-            mustRunAfter deletePluginDocumentation
+                    doLast { delete "${component}/src/docs/asciidoc/images/OFBiz-Logo.svg" }
+                    mustRunAfter deletePluginDocumentation
+                }
+                dependsOn pluginAsciidoc
+                doLast { delete "${component}/src/docs/asciidoc/images/OFBiz-Logo.svg" }
             }
-            dependsOn pluginAsciidoc
-            doLast { delete "${component}/src/docs/asciidoc/images/OFBiz-Logo.svg" }
-        }
 }
 
 task generateAllPluginsDocumentation(group: docsGroup,
@@ -694,8 +694,8 @@ task generateAllPluginsDocumentation(group: docsGroup,
                             outputDir file("${buildDir}/asciidoc/plugins/${component.name}")
                             doLast { println "Documentation generated for plugin ${component.name}" }
                         }
-                    mustRunAfter deleteAllPluginsDocumentation
-                    doLast { delete "${component}/src/docs/asciidoc/images/OFBiz-Logo.svg" }
+                        mustRunAfter deleteAllPluginsDocumentation
+                        doLast { delete "${component}/src/docs/asciidoc/images/OFBiz-Logo.svg" }
                     }
                     dependsOn pluginAsciidoc
                 }
@@ -709,8 +709,8 @@ task generateAllPluginsDocumentation(group: docsGroup,
 task createTestReports(group: sysadminGroup, description: 'Generate HTML reports from junit XML output') {
     doLast {
         ant.taskdef(name: 'junitreport',
-            classname: 'org.apache.tools.ant.taskdefs.optional.junit.XMLResultAggregator',
-            classpath: configurations.junitReport.asPath)
+                classname: 'org.apache.tools.ant.taskdefs.optional.junit.XMLResultAggregator',
+                classpath: configurations.junitReport.asPath)
         ant.junitreport(todir: './runtime/logs/test-results') {
             fileset(dir: './runtime/logs/test-results') {
                 include(name: '*.xml')
@@ -728,8 +728,8 @@ task gitInfoFooter(group: sysadminGroup, description: 'Update the Git Branch-rev
         def gitFolder = rootProject.file('.git')
 
         if (!gitFolder.exists()) {
-          println ("Git is not used")
-          return
+            println ("Git is not used")
+            return
         }
 
         def branchOutput = new ByteArrayOutputStream()
@@ -768,15 +768,15 @@ task createPlugin(group: ofbizPlugin, description: 'create a new plugin componen
         }
 
         def filterTokens = ['component-name': pluginId,
-            'component-resource-name': pluginResourceName,
-            'webapp-name': webappName,
-            'base-permission': basePermission]
+                            'component-resource-name': pluginResourceName,
+                            'webapp-name': webappName,
+                            'base-permission': basePermission]
         def templateDir = "${rootDir}/framework/resources/templates"
         def pluginDir = "${pluginsDir}/${pluginId}"
 
         ['config', 'dtd', 'entitydef', 'lib', 'patches/test', 'patches/qa',
-                'patches/production', 'groovyScripts', 'minilang', 'servicedef', 'src/main/java', 'src/test/java', 'testdef',
-                'widget', "webapp/${webappName}/error", "webapp/${webappName}/WEB-INF"].each {
+         'patches/production', 'groovyScripts', 'minilang', 'servicedef', 'src/main/java', 'src/test/java', 'testdef',
+         'widget', "webapp/${webappName}/error", "webapp/${webappName}/WEB-INF"].each {
             mkdir pluginDir+'/'+it
         }
 
@@ -801,7 +801,7 @@ task createPlugin(group: ofbizPlugin, description: 'create a new plugin componen
             [tempName:'Forms.xml', newName:"${pluginResourceName}Forms.xml", location:'widget']
         ].each { tmpl ->
             generateFileFromTemplate(templateDir + '/' + tmpl.tempName,
-                pluginDir + '/' + tmpl.location, filterTokens, tmpl.newName)
+                    pluginDir + '/' + tmpl.location, filterTokens, tmpl.newName)
         }
 
         println "plugin successfully created in directory ${pluginsDir}/${pluginId}."
@@ -818,15 +818,15 @@ task installPlugin(group: ofbizPlugin, description: 'executes plugin install tas
 
     if (project.hasProperty('pluginId')) {
         activeComponents()
-            .findAll { it.name == pluginId }
-            .each { component ->
-                if (taskExistsInproject(":plugins:${pluginId}", 'install')) {
-                    dependsOn ":plugins:${pluginId}:install"
-                    doLast { println "installed plugin ${pluginId}" }
-                } else {
-                    doLast { println "No install task defined for plugin ${pluginId}, nothing to do" }
+                .findAll { it.name == pluginId }
+                .each { component ->
+                    if (taskExistsInproject(":plugins:${pluginId}", 'install')) {
+                        dependsOn ":plugins:${pluginId}:install"
+                        doLast { println "installed plugin ${pluginId}" }
+                    } else {
+                        doLast { println "No install task defined for plugin ${pluginId}, nothing to do" }
+                    }
                 }
-            }
     }
 }
 
@@ -982,7 +982,7 @@ task cleanUploads(group: cleanupGroup, description: 'Remove uploaded files.') {
 task cleanXtra(group: cleanupGroup, description: 'Clean extra generated files like .rej, .DS_Store, etc.') {
     doLast {
         delete fileTree(dir: "${rootDir}",
-            includes: ['**/.nbattrs', '**/*~','**/.#*', '**/.DS_Store', '**/*.rej', '**/*.orig'])
+                includes: ['**/.nbattrs', '**/*~','**/.#*', '**/.DS_Store', '**/*.rej', '**/*.orig'])
     }
 }
 task cleanFooterFiles(group: cleanupGroup, description: 'clean generated footer files') {
@@ -1057,8 +1057,8 @@ def spawnProcess(command) {
 
 def getDirectoryInActiveComponentsIfExists(String dirName) {
     activeComponents()
-        .collect { file(it.toString() + '/' + dirName) }
-        .findAll { it.exists() }
+            .collect { file(it.toString() + '/' + dirName) }
+            .findAll { it.exists() }
 }
 
 def deleteAllInDirWithExclusions(dirName, exclusions) {
@@ -1088,14 +1088,14 @@ def getJarClasspath() {
 
 def subprojectExists(fullyQualifiedProject) {
     subprojects.stream()
-        .anyMatch { it.path == fullyQualifiedProject.toString() }
+            .anyMatch { it.path == fullyQualifiedProject.toString() }
 }
 
 def taskExistsInproject(fullyQualifiedProject, taskName) {
     subprojects.stream()
-        .filter { it.path == fullyQualifiedProject.toString() }
-        .flatMap { it.tasks.stream() }
-        .anyMatch { it.name == taskName }
+            .filter { it.path == fullyQualifiedProject.toString() }
+            .flatMap { it.tasks.stream() }
+            .anyMatch { it.name == taskName }
 }
 
 def gradlewSubprocess(commandList) {
